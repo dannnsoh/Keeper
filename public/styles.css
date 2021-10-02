@@ -1,0 +1,102 @@
+body {
+	font-family: "Montserrat", sans-serif;
+	background-color: #e0e0e0;
+	margin: 0;
+}
+
+header {
+	padding: 1rem 3rem 0.75rem;
+	background: linear-gradient(#e6ba4d 95%, #a3a3a3);
+	color: #333333;
+	box-shadow: 0 0 1rem 0 #5f5f5f;
+	transition: all 250ms;
+}
+
+header:hover {
+	transition: all 250ms;
+	box-shadow: 0 0 1.5rem 0 #5f5f5f;
+}
+
+.notes {
+	display: flex;
+	padding: 1rem;
+}
+
+.note {
+	display: inline-block;
+	margin: 2rem;
+	padding: 1rem;
+	border: 0.1rem solid #afafaf;
+	border-radius: 7px;
+	height: 150px;
+	width: 300px;
+	box-shadow: 4px 5px 4px 0 #a3a3a3;
+	transition: all 250ms;
+}
+
+.note:hover {
+	transition: all 250ms;
+	transform: scaleZ(0.9);
+	box-shadow: 8px 9px 8px 0 #a3a3a3;
+}
+
+.note > h1 {
+	font-size: 1.4rem;
+}
+
+footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	color: #5c5c5c;
+	padding-bottom: 1rem;
+}
+
+footer > hr {
+	border: none;
+	border-top: #838383 solid 0.1rem;
+	width: 95%;
+	margin-bottom: 1rem;
+}
+
+.form {
+	text-align: center;
+	padding: 1%;
+}
+
+.formInput > input {
+	margin-bottom: 1rem;
+	display: inline-block;
+	width: 250px;
+	height: 50px;
+	text-align: center;
+	border: solid 1px #333333;
+	border-radius: 8px;
+	transition: all 250ms;
+	box-shadow: 0 1.5px 1.5px 0 #a3a3a3;
+}
+
+.formInput > input::placeholder,
+.formInput > input::first-line {
+	font-size: 1.1rem;
+}
+
+.form > button {
+	width: 210px;
+	height: 50px;
+	font-size: 1.1rem;
+	border: #5c5c5c 1px solid;
+	margin-top: 1.5rem;
+	border: solid 1px #333333;
+	border-radius: 8px;
+	transition: all 250ms;
+	box-shadow: 0 1.5px 1.5px 0 #a3a3a3;
+}
+
+.formInput > input:hover,
+.form > button:hover {
+	transition: all 250ms;
+	box-shadow: 0 3px 3px 0 #a3a3a3;
+}
