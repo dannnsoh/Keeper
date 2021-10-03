@@ -13,7 +13,6 @@ header {
 }
 
 header:hover {
-	transition: all 250ms;
 	box-shadow: 0 0 1.5rem 0 #5f5f5f;
 }
 
@@ -35,7 +34,6 @@ header:hover {
 }
 
 .note:hover {
-	transition: all 250ms;
 	transform: scaleZ(0.9);
 	box-shadow: 8px 9px 8px 0 #a3a3a3;
 }
@@ -97,7 +95,6 @@ footer > hr {
 
 .form > input:hover,
 .form > button:hover {
-	transition: all 250ms;
 	box-shadow: 0 3px 3px 0 #a3a3a3;
 }
 
