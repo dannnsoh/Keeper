@@ -9,40 +9,49 @@ import Input from "./Input";
 // let isRegistered = false;
 
 function App() {
-	const [ mouseOver, setMouseOver ] = useState(false);
+	const [ contact, setContact ] = useState({
+		fName: "",
+		lName: "",
+		email: ""
+	});
 
-	function handleMouseOver() {
-		setMouseOver(true);
-	}
-
-	function handleMouseOut() {
-		setMouseOver(false);
-	}
-
-	const [ headingText, setHeadingText ] = useState("");
-
-	function handleHeadingText(event) {
-		setHeadingText(event.target.value);
+	function handleInput(event) {
+		const { value, name } = event.target;
+		setContact((prev) => {
+			return {
+				...prev,
+				[name]: value
+			};
+		});
 	}
 
 	return (
-		<div className="container">
-			<h1>Hello {headingText}</h1>
+		<form className="container">
+			<h1>Hello {`${contact.fName} ${contact.lName}`}</h1>
+			<p>{contact.email}</p>
 			<input
-				onChange={handleHeadingText}
+				onChange={handleInput}
+				name="fName"
 				type="text"
-				placeholder="What's your name?"
-				value={headingText}
+				placeholder="First Name"
+				value={contact.fName}
 			/>
-			<button
-				style={{ backgroundColor: mouseOver ? "lightblue" : "white" }}
-				onMouseOver={handleMouseOver}
-				onMouseOut={handleMouseOut}
-				onSubmit={handleHeadingText}
-			>
-				Submit
-			</button>
-		</div>
+			<input
+				onChange={handleInput}
+				name="lName"
+				type="text"
+				placeholder="Last Name"
+				value={contact.lName}
+			/>
+			<input
+				onChange={handleInput}
+				name="email"
+				type="email"
+				placeholder="Email"
+				value={contact.email}
+			/>
+			<button>Submit</button>
+		</form>
 	);
 }
 
