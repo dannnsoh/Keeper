@@ -1,70 +1,52 @@
 import React, { useState } from "react";
 import Heading from "./Heading";
-import Note from "./Note";
 import Footer from "./Footer";
-import notes from "../notes";
-import Form from "./Form";
-import Input from "./Input";
+import Note from "./Note";
+import NewNote from "./NewNote";
 
-// let isRegistered = false;
+export default function App() {
+	const [ item, setItem ] = useState([]);
 
-function App() {
-	const [ contact, setContact ] = useState({
-		fName: "",
-		lName: "",
-		email: ""
-	});
+	function addItem(newInput) {
+		setItem((prev) => [ ...prev, newInput ]);
+	}
 
-	function handleInput(event) {
-		const { value, name } = event.target;
-		setContact((prev) => {
-			return {
-				...prev,
-				[name]: value
-			};
+	function deleteItem(deleteIndex) {
+		setItem((prev) => {
+			return prev.filter((item, index) => {
+				return index !== deleteIndex;
+			});
 		});
 	}
 
 	return (
-		<form className="container">
-			<h1>Hello {`${contact.fName} ${contact.lName}`}</h1>
-			<p>{contact.email}</p>
-			<input
-				onChange={handleInput}
-				name="fName"
-				type="text"
-				placeholder="First Name"
-				value={contact.fName}
-			/>
-			<input
-				onChange={handleInput}
-				name="lName"
-				type="text"
-				placeholder="Last Name"
-				value={contact.lName}
-			/>
-			<input
-				onChange={handleInput}
-				name="email"
-				type="email"
-				placeholder="Email"
-				value={contact.email}
-			/>
-			<button>Submit</button>
-		</form>
+		<div>
+			<Heading />
+			<NewNote addItem={addItem} />
+			<div className="noteSection">
+				{item.map((note, index) => (
+					<Note
+						key={index}
+						id={index}
+						title={note.title}
+						content={note.content}
+						onDelete={deleteItem}
+					/>
+				))}
+				{/* <Note
+					title="This is a note"
+					content="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga deleniti, vero ducimus provident excepturi obcaecati, facere sapiente eum iste maxime, error nesciunt itaque? Quaerat, distinctio. Libero voluptas inventore eius soluta?"
+				/>
+				<Note
+					title="Wow i am a note"
+					content="dolor siteum iste maxime, error nesciunt itaque? Quaerat, distinctio. Libero voluptas inventore eius soluta? Lorem, ipsum  amet consectetur adipisicing elit. Fuga deleniti, vero ducimus provident excepturi obcaecati, facere sapiente "
+				/>
+				<Note
+					title="lorem IPSUM!!!1"
+					content="excepturi obcaecati, facere sapiente eum iste maxime, error nesciunt itaque? Quaerat Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga deleniti, vero ducimus provident , distinctio. Libero voluptas inventore eius soluta?"
+				/> */}
+			</div>
+			<Footer />
+		</div>
 	);
 }
-
-export default App;
-
-// <div>
-// 	<Heading />
-// 	<Form isRegistered={isRegistered} />
-// 	<Footer />
-// </div>
-
-// <div className="notes">
-// 	{notes.map((note) => (
-// 		<Note key={note.key} title={note.title} content={note.content} />
-// 	))}
-// </div>

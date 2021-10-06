@@ -1,11 +1,12 @@
 import React from "react";
+import NoteIcon from "@material-ui/icons/Notes";
 
-function Heading () {
+export default function Heading() {
 	return (
 		<header>
-			<h1>Keeper</h1>
+			<h1>
+				Keeper <NoteIcon />
+			</h1>
 		</header>
 	);
 }
-
-export default Heading;

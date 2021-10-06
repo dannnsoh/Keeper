@@ -1,9 +1,12 @@
+html,
 body {
 	font-family: "Montserrat", sans-serif;
 	background-color: #e0e0e0;
+	background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
 	margin: 0;
 }
 
+/* Header */
 header {
 	padding: 1rem 3rem 0.75rem;
 	background: linear-gradient(#e6ba4d 95%, #a3a3a3);
@@ -16,114 +19,137 @@ header:hover {
 	box-shadow: 0 0 1.5rem 0 #5f5f5f;
 }
 
-.notes {
-	display: flex;
-	padding: 1rem;
+/* New Note Input */
+.noteInput {
+	position: relative;
+	background-color: #e9e9e9;
+	width: 400px;
+	margin: 2rem auto 4rem;
+	padding: 2rem;
+	transition: all 250ms;
+	box-shadow: 2px 5px 5px 0 #a3a3a3;
+	border: solid 1px #83838321;
+	border-radius: 10px;
+}
+
+.noteInput:hover {
+	transform: scaleZ(0.9);
+	box-shadow: 2px 9px 8px 0 #a3a3a3;
+}
+
+.noteInput input,
+.noteInput textarea {
+	width: 95%;
+	font-family: "Montserrat", sans-serif;
+	background-color: #e9e9e9;
+	border: none;
+	line-height: 2rem;
+	font-size: 1.1rem;
+	display: block;
+	transition: all 250ms;
+}
+
+form.noteInput textarea {
+	resize: none;
+}
+
+form.noteInput input:focus,
+form.noteInput textarea:focus {
+	outline: none;
+}
+
+form.noteInput hr {
+	border: none;
+	border-top: #83838341 solid 0.1rem;
+	width: 95%;
+	margin: 0.7rem 0;
+}
+
+#addBtn {
+	font-family: "Montserrat", sans-serif;
+	color: #838383;
+	background-color: #ddca9b;
+	border: none;
+	box-shadow: 1px 2px 5px 0 #a3a3a3;
+	position: absolute;
+	bottom: -20px;
+	right: 23px;
+	cursor: pointer;
+	transition: all 250ms;
+}
+
+#addBtn:hover {
+	color: #5f5f5f;
+	background-color: #dbbc6c;
+	box-shadow: 1px 4px 5px 0 #a3a3a3;
+}
+
+/* Notes Section */
+.noteSection {
+	margin: 3rem 2rem 6rem;
 }
 
 .note {
-	display: inline-block;
-	margin: 2rem;
-	padding: 1rem;
-	border: 0.1rem solid #afafaf;
-	border-radius: 7px;
-	height: 150px;
-	width: 300px;
-	box-shadow: 4px 5px 4px 0 #a3a3a3;
+	background-color: #e9e9e9;
+	width: 350px;
+	min-height: fit-content;
+	margin: 1rem;
+	padding: 0 1rem 1rem;
 	transition: all 250ms;
+	box-shadow: 2px 3px 5px 0 #a3a3a3;
+	border: solid 1px #83838321;
+	border-radius: 10px;
+	position: relative;
+	top: 0;
 }
 
 .note:hover {
-	transform: scaleZ(0.9);
-	box-shadow: 8px 9px 8px 0 #a3a3a3;
+	top: -4px;
+	box-shadow: 2px 6px 7px 0 #a3a3a3;
 }
 
-.note > h1 {
-	font-size: 1.4rem;
+.note hr {
+	border: none;
+	border-top: #83838341 solid 0.1rem;
+	width: 95%;
+	margin: 0.7rem 0;
 }
 
+.deleteBtn {
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+	color: #d89b00;
+	background-color: #e9e9e9;
+	display: block;
+	margin-left: auto;
+	border: none;
+	cursor: pointer;
+	transition: all 250ms;
+}
+
+.deleteBtn:hover {
+	color: #a01129;
+}
+
+/* Footer */
 footer {
-	position: absolute;
+	background-image: url("https://www.transparenttextures.com/patterns/lined-paper-2.png");
+	position: fixed;
+	z-index: 1;
 	text-align: center;
 	bottom: 0;
 	right: 0;
+	left: 0;
 	width: 100%;
-	color: #5c5c5c;
+	background-color: #e0e0e0;
+	color: #838383;
 	padding-bottom: 1rem;
 }
 
-footer > hr {
+footer hr {
 	border: none;
-	border-top: #838383 solid 0.1rem;
+	border-top: #83838341 solid 0.1rem;
 	width: 95%;
 	margin-bottom: 1rem;
-}
-
-.form {
-	text-align: center;
-	padding: 1%;
-}
-
-.form > input {
-	display: block;
-	margin: 0 auto 1rem;
-	width: 250px;
-	height: 50px;
-	text-align: center;
-	border: solid 1px #333333;
-	border-radius: 8px;
-	transition: all 250ms;
-	box-shadow: 0 1.5px 1.5px 0 #a3a3a3;
-}
-
-.form > input::placeholder,
-.form > input::first-line {
-	font-size: 1.1rem;
-}
-
-.form > button {
-	width: 210px;
-	height: 50px;
-	font-size: 1.1rem;
-	border: #5c5c5c 1px solid;
-	margin-top: 1.5rem;
-	border: solid 1px #333333;
-	border-radius: 8px;
-	transition: all 250ms;
-	box-shadow: 0 1.5px 1.5px 0 #a3a3a3;
-}
-
-.form > input:hover,
-.form > button:hover {
-	box-shadow: 0 3px 3px 0 #a3a3a3;
-}
-
-.container {
-	font-size: 3rem;
-	text-align: center;
-}
-
-.container > input {
-	display: block;
-	margin: 0 auto 1rem;
-	width: 250px;
-	height: 50px;
-	text-align: center;
-	border: solid 1px #333333;
-	border-radius: 8px;
-}
-
-.container > input::placeholder,
-.container > input::first-line {
-	font-size: 1.2rem;
-}
-
-.container > button {
-	width: 210px;
-	height: 50px;
-	font-size: 1.1rem;
-	border: #5c5c5c 1px solid;
-	margin-top: 1.5rem;
-	border: solid 1px #333333;
-	border-radius: 8px;
+	margin-top: 0;
 }

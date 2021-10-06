@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "./Input";
 
-function Form(props) {
+export default function Form(props) {
 	return (
 		<form className="form">
 			<Input type="text" placeholder="Username" />
@@ -11,5 +11,3 @@ function Form(props) {
 		</form>
 	);
 }
-
-export default Form;
